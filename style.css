@@ -1,0 +1,205 @@
+body{
+     margin:0;
+     background: midnightblue;
+     background-repeat:no-repeat;
+     font-family: sans-serif;
+ }
+*{
+     box-sizing: border-box;
+ }
+.quiz-container{
+     max-width: 700px;
+     min-height:500px;
+     background-color: white;
+     margin:40px auto;
+ 
+     border-radius:15px;
+     padding:30px;
+ }
+ .quiz-container::after,.quiz-container::before{
+     content: '';
+     clear: both;
+     display: table;
+ 
+ }
+ .question-number,
+ .question,
+ .options,
+ .button,
+ .answers-tracker{
+  float: left;
+  width: 100%;
+ }
+ .question-number h3{
+     color:#009688;
+     border-bottom: 2px solid magenta;
+     margin:0;
+     padding-bottom:10px;
+ }
+ 
+ .question {
+     font-size:22px;
+     color:000000;
+     padding:20px 0;
+     
+ }
+ 
+ .options div{
+   background-color: orange;
+   font-size:16px;
+   color:000000;
+   margin-bottom:10px;
+   border-radius:10px;
+   padding:15px;
+   position: relative;
+   overflow:hidden;
+   cursor: pointer;
+   width: 230px;
+   Margin-left: 0;
+   Margin-right: 0;
+ }
+ .options div.disabled{
+     pointer-events: none;
+ }
+ .options div.correct{
+     z-index: 1;
+     color: #fff;
+ }
+ .options div.correct::before{
+     content: '';
+     position: absolute;
+     left:0;
+     top:0;
+     width: 100%;
+     height: 100%;
+     background-color: green;
+     z-index: -1;
+     
+     animation: animateBackground 1s ease;
+     animation-fill-mode: forwards;
+ }
+ @keyframes animateBackground{
+     0%{
+         transform: translateX(-100%);
+     }
+     100%{
+      transform: translateX(0%);    
+     }
+ }
+ .options div.wrong{
+     z-index: 1;
+     color: #fff;
+ }
+ .options div.wrong::before{
+     content: '';
+     position: absolute;
+     left:0;
+     top:0;
+     width: 100%;
+     height: 100%;
+     background-color:red;
+     z-index: -1;
+     
+     animation: animateBackground 1s ease;
+     animation-fill-mode: forwards;
+ }
+ @keyframes animateBackground{
+     0%{
+         transform: translateX(-100%);
+     }
+     100%{
+      transform: translateX(0%);    
+     }
+ }
+ 
+ .button .btn{
+  padding:15px 50px;
+  border-radius:13px;
+  cursor: pointer;
+  background-color: black;
+  font-size:16px;
+  color:#ffffff;
+  border: none;
+  display: inline-block;
+  margin:15px 0 20px;
+  transition: 0.6;
+  transition-property: background, transform;
+ }
+ 
+ .button .btn:hover, .button .btn:focus, .button .btn:focus{
+     background: #04351E;
+     transform: scale(1.1);
+ }
+ .answers-tracker{
+     border-top:2px solid magenta;
+     padding-top: 15px;
+ }
+ .answers-tracker div{
+     height: 40px;
+     width: 40px;
+     background-color: #cccccc;
+     display: inline-block;
+     border-radius: 20%;
+     margin-right:5px;
+ }
+ 
+ .answers-tracker div.correct{
+     background-color: green;
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: 54%;
+ 
+ }
+ .answers-tracker div.wrong{
+     background-color: red;
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: 50%;
+ }
+ 
+ .quiz-over{
+     position: fixed;
+     left:0;
+     top:0;
+     width: 100%;
+     height: 100%;
+     background-color: teal;
+     z-index: 10;
+     display: none;
+     align-items: center;
+     justify-content: center;
+ }
+ .quiz-over.show{
+     display: flex;
+ }
+ .quiz-over .box{
+     background-color: purple;
+     padding:30px;
+     border-radius:10px;
+     text-align: center;
+     flex-basis: 700px;
+     max-width:700px;
+     color:#ffffff;
+ }
+ 
+ .quiz-over .box h1{
+     font-size:36px;
+     margin:0 0 20px;
+ }
+ 
+ .quiz-over .box button{
+     padding:15px 50px;
+     border:none;
+     background-color: blue ;
+     border-radius:13px;
+     font-size:16px;
+     margin:15px 0 20px;
+     color:#ffffff;
+     transition: 0.6;
+     transition-property: background, transform;
+ }
+ 
+ .quiz-over button:hover, .quiz-over button:focus, .quiz-over button:focus{
+     background: violet;
+     transform: scale(1.1);
+ }
